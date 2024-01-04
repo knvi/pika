@@ -1,6 +1,6 @@
 # pika go
 
-0 dependencies Golang implementation for [pika.](https://github.com/hopinc/pika)
+Golang implementation for [pika.](https://github.com/hopinc/pika)
 
 ## Install
 To install, run
