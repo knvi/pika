@@ -5,7 +5,7 @@ Golang implementation for [pika.](https://github.com/hopinc/pika)
 ## Install
 To install, run
 ```sh
-go get github.com/knvi/pika@v1.1.0
+go get github.com/knvi/pika@v1.2.0
 ```
 
 ## Usage
