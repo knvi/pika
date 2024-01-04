@@ -5,19 +5,27 @@
 ## Usage
 
 ```go
-prefixes := []PikaPrefixDefinition{
-    {
-        Prefix:      "test",
-        Description: "test",
-        Secure:      false,
-    },
+package main
+
+import "github.com/knvi/pika"
+
+func main() {
+	prefixes := []pika.PikaPrefixDefinition{
+		{
+			Prefix:      "test",
+			Description: "test",
+			Secure:      false,
+		},
+	}
+	
+	p := pika.NewPika(prefixes, pika.PikaInitOptions{
+		Epoch:            1650153600000,
+		NodeID:           622,
+		DisableLowercase: true,
+	})
+	
+	id := p.Gen("test")
+
+	println(id)
 }
-
-p := NewPika(prefixes, PikaInitOptions{
-    Epoch:            1650153600000,
-    NodeID:           622,
-    DisableLowercase: true,
-})
-
-id := p.Gen("test")
 ```
