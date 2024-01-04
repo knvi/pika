@@ -11,8 +11,8 @@ import (
 	"strings"
 )
 
-var VALID_PREFIX = regexp.MustCompile(`^[a-z0-9_]+$`)
-var DEFAULT_EPOCH int64 = 1640995200000 // Jan 1, 2022
+var val_prefix = regexp.MustCompile(`^[a-z0-9_]+$`)
+var def_epoch int64 = 1640995200000 // Jan 1, 2022
 
 type PikaPrefixDefinition struct {
 	Prefix string
@@ -47,7 +47,7 @@ type PikaInitOptions struct {
 
 func NewPika(prefixes []PikaPrefixDefinition, opts PikaInitOptions) *Pika {
 	var epoch int64
-	if opts.Epoch == 0 { epoch = DEFAULT_EPOCH } else { epoch = opts.Epoch }
+	if opts.Epoch == 0 { epoch = def_epoch } else { epoch = opts.Epoch }
 
 	var nodeID int
 	if opts.NodeID == 0 { nodeID = ComputeNodeID() } else { nodeID = opts.NodeID }
@@ -61,7 +61,7 @@ func NewPika(prefixes []PikaPrefixDefinition, opts PikaInitOptions) *Pika {
 	}
 
 	for _, prefix := range prefixes {
-        if !VALID_PREFIX.MatchString(prefix.Prefix) {
+        if !val_prefix.MatchString(prefix.Prefix) {
             panic(fmt.Sprintf("invalid prefix; prefixes must be alphanumeric (a-z0-9_) and may include underscores; received: %s", prefix.Prefix))
         }
 
@@ -72,7 +72,7 @@ func NewPika(prefixes []PikaPrefixDefinition, opts PikaInitOptions) *Pika {
 }
 
 func (p *Pika) Gen(prefix string) string {
-	if !VALID_PREFIX.MatchString(prefix) {
+	if !val_prefix.MatchString(prefix) {
         panic(fmt.Sprintf("invalid prefix; prefixes must be alphanumeric (a-z0-9_) and may include underscores; received: %s", prefix))
     }
 
