@@ -1,6 +1,12 @@
 # pika go
 
-0 dependencies Golang implementation for Pika.
+0 dependencies Golang implementation for [pika.](https://github.com/hopinc/pika)
+
+## Install
+To install, run
+```sh
+go get github.com/knvi/pika@v1.1.0
+```
 
 ## Usage
 
